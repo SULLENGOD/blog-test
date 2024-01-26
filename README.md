@@ -57,6 +57,7 @@ To do this, you need to change the line:
 
 ```javascript
   await sequelize.sync({force: true});
+  await seedData();
 ```
 
 to:
@@ -71,7 +72,6 @@ The 'main' function should look like this:
   async function main() {
     try {
         await sequelize.sync({force: false});
-        await seedData();
         app.listen(app.get('port'))
         console.log({
             server: "online",
